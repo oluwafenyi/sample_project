@@ -51,14 +51,6 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
 # Django Admin URL regex.
 ADMIN_URL = env("DJANGO_ADMIN_URL", default="admin/")
 
-INSTALLED_APPS += ["silk", "nplusone.ext.django"]  # noqa F405
-
-# https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
-MIDDLEWARE += [
-    "silk.middleware.SilkyMiddleware",
-    "nplusone.ext.django.NPlusOneMiddleware",
-]  # noqa F405
-
 # LOGGING
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging
