@@ -5,7 +5,8 @@ This pipeline runs on merge/push to a `staging` branch.
 You should create an app in heroku for this project before you proceed.
 Set the required env variables in heroku > settings > config vars. For this application
 I will be setting:
-1. DJANGO_SECRET_KEY
+1. DJANGO_SECRET_KEY=foo
+2. DJANGO_DEBUG=true
 
 The pipeline runs tests on your code and uses akhileshns/heroku-deploy@v3.12.12 to deploy.
 You are required to modify:
