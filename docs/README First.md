@@ -5,7 +5,7 @@ This repository also contains sample scripts and configurations for the deployme
 
 * local.yml and production.yml are docker-compose configurations
 * heroku.yml contains config for running as a container on heroku
-* tests are configured using pytest
+* tests are configured using pytest, so running pytest in the root directory runs all tests, this is used in the .github/workflows/CI.yml to run tests on pr/merge to master
 * there is a requirements directory containing all requirements for the django application split into production, local and base requirements
 * the docs directory contains guides to deploying and setting up on a production server
 * the nginx directory contains sample nginx configs
@@ -14,6 +14,10 @@ This repository also contains sample scripts and configurations for the deployme
 * maintenance directory contains the maintenance site
 * .envs/ contains environment variables for prod and local
 * .github/ contains automated github workflows
+* I have created a sample view in sample_project/contrib/views.py for random images that should work with whitenoise
 
 ### Running Locally
 To run the site locally, run docker-compose -f local.yml up in the root directory
+
+
+#### Further links: https://realpython.com/django-nginx-gunicorn/

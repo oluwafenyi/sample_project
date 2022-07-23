@@ -2,6 +2,7 @@
 This setup guide assumes you have moved the code to the production server,
 installed docker, docker-compose as well as postgresql-client on your ubuntu machine.
 
+Feel free to modify script/file names but make sure they are consistent across configs.
 
 ### Gunicorn and Database Setup:
 * Configs for running the DB Server and Gunicorn Web Server are defined in production.yml
@@ -87,3 +88,19 @@ the commands for doing this can be found in the `scripts/` directory.
 
 root /path/to/upwork/sample_project/maintenance;  # modify path to maintenance home (contains index.html)
 ```
+
+
+### LetsEncrypt Setup:
+* Install certbot on your machine by following the instructions on their website: https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal
+* Configure nginx to use newer versions of TLS by replacing a line in the nginx config
+```
+# /etc/nginx/nginx.conf
+
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+# replace with
+ssl_protocols TLSv1.2 TLSv1.3;
+```
+* run `nginx -t` to confirm nginx supports tls 1.3
+* run the following command and follow the prompts to install the certificate `sudo certbot --nginx --rsa-key-size 4096 --no-redirect`
+* reload nginx with `sudo systemctl reload nginx`
