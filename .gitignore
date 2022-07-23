@@ -329,5 +329,6 @@ sample_project/media/
 .env
 .envs/*
 !.envs/.local/
+!.envs/.production/
 
 sample_project.db
