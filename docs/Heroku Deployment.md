@@ -7,6 +7,9 @@ Set the required env variables in heroku > settings > config vars. For this appl
 I will be setting:
 1. DJANGO_SECRET_KEY=foo
 2. DJANGO_DEBUG=true
+3. DJANGO_SETTINGS_MODULE=config.settings.heroku
+
+Add Heroku postgres as a resource. This will automatically add the DATABASE_URL variable.
 
 The pipeline runs tests on your code and uses akhileshns/heroku-deploy@v3.12.12 to deploy.
 You are required to modify:
