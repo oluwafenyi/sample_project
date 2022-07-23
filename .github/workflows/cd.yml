@@ -60,4 +60,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}  # store your api within github secrets
           heroku_app_name: "sample-projectx" # Must be unique in Heroku
           heroku_email: "o.enyioma@gmail.com"  # Your heroku login mail
-          usedocker: true
+          stack: "container"
