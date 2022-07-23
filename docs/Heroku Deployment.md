@@ -1,5 +1,6 @@
 # Heroku Setup
-Heroku setup is handled automatically by the pipeline defined in .github/workflows/cd.yml
+Heroku setup is handled automatically by the pipeline defined in .github/workflows/cd.yml.
+This pipeline runs on merge/push to a `staging` branch.
 
 The pipeline runs tests on your code and uses akhileshns/heroku-deploy@v3.12.12 to deploy.
 You are required to modify:
