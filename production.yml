@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    container_name: iabwa_postgres_db
+    env_file:
+      - .envs/.production/.postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  web:
+    build:
+      context: .
+    restart: always
+    container_name: iabwa_app
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - .envs/.production/.postgres
+      - .envs/.production/.django
+    environment:
+      - PORT=8000
+      - DJANGO_SETTINGS_MODULE=config.settings.production
+    depends_on:
+      - db
+volumes:
+  postgres_data:
