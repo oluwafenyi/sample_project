@@ -16,6 +16,25 @@ This repository also contains sample scripts and configurations for the deployme
 * .github/ contains automated github workflows
 * I have created a sample view in sample_project/contrib/views.py for random images that should work with whitenoise
 
+
+### Installing Standalone Django Apps from Private Repositories
+In this project I have included a custom django app to be installed directly from a git repository.
+You will find a reference to it in `requirements/base.txt#L18`, pip has the ability to pull from
+git repositories and install them provided they have been packaged correctly. (You can find django documentation on packaging
+a standalone app here: https://docs.djangoproject.com/en/4.0/intro/reusable-apps/)
+
+Once your app has been packaged and committed to a repository you will be able to run it using
+
+`pip install git+https://github.com/<USERNAME>/<REPOSITORY>.git`
+
+
+Private repositories will require an access token with read access so the url will be a bit different:
+
+`pip install git+https://<PERSONAL ACCESS TOKEN>@github.com/<USERNAME>/<REPOSITORY>.git`
+
+
+You can find a sample django standalone app at https://github.com/oluwafenyi/sample_app.
+
 ### Running Locally
 To run the site locally, run docker-compose -f local.yml up in the root directory
 
